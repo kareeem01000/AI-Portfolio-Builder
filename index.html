@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio Builder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 0.5s, color 0.5s;
+        }
+        header, footer {
+            background-color: #004d99;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            margin: 0;
+            transition: color 0.5s;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        #intro {
+            margin-bottom: 2rem;
+            animation: fadeIn 2s ease-out;
+        }
+        button {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            width: 320px;
+            transition: transform 0.3s ease;
+        }
+        form input, form textarea {
+            background: #e9ecef;
+            border: 1px solid #ccc;
+            color: #333;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        form input:focus, form textarea:focus {
+            background: #dcdcdc;
+            border-color: #007bff;
+            outline: none;
+        }
+        #portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+            opacity: 0;
+            transition: opacity 1s ease;
+            animation: fadeIn 1s ease-out forwards;
+        }
+        #portfolio.show {
+            opacity: 1;
+        }
+        .project {
+            background: rgba(50, 50, 50, 0.8);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            color: #fff;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        .project a {
+            color: #00ccff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .project a:hover {
+            color: #008fb3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* New Sections */
+        .section {
+            margin: 2rem 0;
+            width: 100%;
+            padding: 0 20px;
+        }
+        /* Client Testimonials */
+        .testimonial {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 1rem 0;
+        }
+        .dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .dark-mode header, .dark-mode footer {
+            background-color: #0056b3;
+        }
+        .dark-mode form input, .dark-mode form textarea {
+            background: #333;
+            color: #fff;
+            border: 1px solid #444;
+        }
+        .dark-mode form input:focus, .dark-mode form textarea:focus {
+            background: #555;
+            border-color: #00ccff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI Portfolio Builder</h1>
+        <button id="toggleDarkMode">Toggle Dark Mode</button>
+    </header>
+    <main>
+        <section id="intro">
+            <h2>Welcome to Your Future</h2>
+            <p>Create a stunning portfolio with the power of AI.</p>
+        </section>
+        <section>
+            <form id="cvForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="jobTitle" placeholder="Job Title" required>
+                <textarea id="experience" placeholder="Experience" rows="4" required></textarea>
+                <textarea id="skills" placeholder="Skills" rows="4" required></textarea>
+                <input type="file" id="resume" accept=".pdf" required>
+                <button type="submit">Create Portfolio</button>
+            </form>
+        </section>
+        <section class="section">
+            <h2>Client Portfolios</h2>
+            <div class="project">
+                <h3>Frank Graham's Portfolio</h3>
+                <p>Website Development: Created a modern, responsive website for a tech startup.</p>
+                <a href="https://kareeem01000.github.io/Frank-Graham/" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Michelle Johnson's Portfolio</h3>
+                <p>Data Visualization: Developed interactive dashboards for business analytics.</p>
+                <a href="https://kareeem01000.github.io/Michelle-Johnson/" target="_blank">View Project</a>
+            </div>
+            <div class="project">
+                <h3>Maria Rojos' Portfolio</h3>
+                <p>Mobile App Development: Designed and implemented a mobile app for task management.</p>
+                <a href="https://kareeem01000.github.io/Maria-Rojos/" target="_blank">View Project</a>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Testimonials</h2>
+            <div class="testimonial">
+                <p>"The AI Portfolio Builder made it so easy for me to create my portfolio!" - John Doe</p>
+            </div>
+            <div class="testimonial">
+                <p>"I landed my dream job thanks to the amazing portfolio I created!" - Jane Smith</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 AI Portfolio Builder. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('toggleDarkMode').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        document.getElementById('cvForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const portfolioSection = document.getElementById('portfolio');
+            const name = document.getElementById('name').value;
+            const jobTitle = document.getElementById('jobTitle').value;
+            const experience = document.getElementById('experience').value;
+            const skills = document.getElementById('skills').value;
+
+            portfolioSection.innerHTML = `
+                <h2>${name}'s Portfolio</h2>
+                <h3>Job Title: ${jobTitle}</h3>
+                <h4>Experience:</h4>
+                <p>${experience}</p>
+                <h4>Skills:</h4>
+                <p>${skills}</p>
+            `;
+            portfolioSection.classList.add('show');
+        });
+    </script>
+</body>
+</html>
